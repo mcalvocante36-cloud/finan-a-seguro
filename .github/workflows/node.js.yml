@@ -27,11 +27,11 @@ jobs:
           node-version: 20 # Versão recomendada do Node.js
           cache: 'npm'
       
-      - name: Install dependencies and Build (Vite)
-        run: |
-          npm install
-          npm run build # A etapa crucial que cria a pasta 'dist'
-
+     - name: Install dependencies and Build (Vite)
+    run: |
+      npm ci # Agora o Actions fará uma instalação limpa usando o package-lock.json
+      npm run build
+      
       - name: Setup Pages
         uses: actions/configure-pages@v5
         
@@ -51,3 +51,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        
