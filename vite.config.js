@@ -5,11 +5,15 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // ESTA linha diz ao Vite onde encontrar o index.html
-  root: 'docs', 
-
-  // ESTA linha já estava correta para o caminho do GitHub Pages
+  root: 'docs', // Mantém a raiz de build em 'docs'
   base: '/finan-a-seguro/', 
-
+  
   plugins: [react()],
+  
+  // ADICIONE ESTE BLOCO para forçar a entrada correta do index.html
+  build: {
+    rollupOptions: {
+      input: 'docs/index.html' // Ponto de entrada corrigido
+    }
+  }
 })
