@@ -1,4 +1,4 @@
-// No seu arquivo vite.config.js
+// vite.config.js
 
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
@@ -10,10 +10,10 @@ export default defineConfig({
   
   plugins: [react()],
   
-  // ADICIONE ESTE BLOCO para forçar a entrada correta do index.html
   build: {
+    outDir: '../dist', // <--- IMPORTANTE: Cria a pasta 'dist' na raiz do projeto.
     rollupOptions: {
-      input: 'docs/index.html' // Ponto de entrada corrigido
+      input: 'docs/index.html'
     }
   }
 })
