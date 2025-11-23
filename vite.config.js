@@ -1,19 +1,17 @@
-// vite.config.js (Versão FINAL)
+// vite.config.js (Versão Final com root: 'docs' + outDir)
 
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  root: 'docs', // Mantém a raiz de build em 'docs'
-  base: './', // <--- MUDANÇA CRUCIAL: Usa caminho relativo para o GitHub Pages
-  
+  root: 'docs', 
+  base: './', // Usamos o caminho relativo
+
   plugins: [react()],
   
   build: {
-    outDir: '../dist',
-    rollupOptions: {
-      input: 'docs/index.html'
-    }
+    outDir: '../dist', // Volta para a pasta 'dist' na raiz
+    // Removido: rollupOptions
   }
 })
